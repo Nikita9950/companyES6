@@ -35,16 +35,16 @@ class Company {
   }
 
   addDepartment(department) {
-    if (department instanceof Object) {
+    if (department instanceof Department) {
       this._departments.push(department)
     } else {
       console.warn('invalid data type')
     }
   }
 
-  addEmployee(empoloyee) {
-    if (empoloyee instanceof Object) {
-      this._employees.push(empoloyee)
+  addEmployee(employee) {
+    if (employee instanceof Employee) {
+      this._employees.push(employee)
     } else {
       console.warn('invalid data type')
     }
@@ -52,8 +52,7 @@ class Company {
 
   removeDepartmentById(id) {
     if (typeof id === 'number') {
-      const index = this._departments.findIndex(elem => elem._id === id)
-      this._departments.splice(index, 1)
+      this._departments = this._departments.filter(elem => elem._id !== id)
     } else {
       console.warn('invalid data type')
     }
@@ -61,8 +60,7 @@ class Company {
 
   removeEmployeeByName(name) {
     if (typeof name === 'string') {
-      const index = this._employees.findIndex(elem => elem._name === name)
-      this._employees.splice(index, 1)
+      this._employees = this._employees.filter(elem => elem._name !== name)
     } else {
       console.warn('invalid data type')
     }
@@ -70,7 +68,7 @@ class Company {
 
   getEmployeesByDepartment(departmentId) {
     if (typeof departmentId === 'number') {
-      return this.getEmployees().filter(function (elem) {
+      return this._employees.filter(function (elem) {
         return elem.getDepartmentId() === departmentId
       })
     } else {
