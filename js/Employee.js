@@ -2,7 +2,7 @@ class Employee {
   constructor(name, phone, departmentId) {
     this._name = name
     this._phone = phone
-    this._department = departmentId
+    this._departmentId = departmentId
   }
 
   getName() {
@@ -18,12 +18,12 @@ class Employee {
   }
 
   getDepartmentId() {
-    return this._department
+    return this._departmentId
   }
 
   setDepartmentId(departmentId) {
     if (typeof departmentId === 'number') {
-      this._department = departmentId
+      this._departmentId = departmentId
     } else {
       console.warn('invalid data type')
     }
