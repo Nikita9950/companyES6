@@ -11,7 +11,7 @@ class Department {
 
   setAddressAsync(address) {
     if (typeof address === 'string') {
-      const promise = new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
           if (this._officeRent) {
             this._address = address
@@ -21,9 +21,6 @@ class Department {
           }
         }, 2000)
       })
-      promise
-        .then(response => console.log(`New address: ${response}`))
-        .catch(response => response)
     } else {
       console.warn('invalid data type')
     }
