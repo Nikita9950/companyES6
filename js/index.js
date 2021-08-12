@@ -31,4 +31,4 @@ console.log(myCompany.getEmployeesByDepartment(2));
 console.log(officeNumberOne.getAddress());
 officeNumberOne.setAddressAsync('Lviv, Freedom square')
   .then(response => console.log(`New address: ${response}`))
-  .catch(response => response)
+  .catch(error => error)
