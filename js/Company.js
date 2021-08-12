@@ -68,9 +68,7 @@ class Company {
 
   getEmployeesByDepartment(departmentId) {
     if (typeof departmentId === 'number') {
-      return this._employees.filter(function (elem) {
-        return elem.getDepartmentId() === departmentId
-      })
+      return this._employees.filter(elem => elem.getDepartmentId() === departmentId)
     } else {
       console.warn('invalid data type')
     }
