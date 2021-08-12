@@ -17,7 +17,7 @@ class Department {
             this._address = address
             resolve(this._address)
           } else {
-            reject(console.warn('You cannot change the address.'))
+            reject(new Error('You cannot change the address.'))
           }
         }, 2000)
       })
